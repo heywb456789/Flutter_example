@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:toonflix/widgets/buttond.dart';
+import 'package:toonflix/widgets/currenyCard.dart';
 
 void main() {
   // runApp 은 Widget을 사용하여 앱에 주입 가능
@@ -30,7 +31,7 @@ class App extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(
-                height: 80,
+                height: 20,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -58,7 +59,7 @@ class App extends StatelessWidget {
                 ],
               ),
               const SizedBox(
-                height: 120,
+                height: 20,
               ),
               Text('Total Balance',
                   style: TextStyle(
@@ -74,7 +75,7 @@ class App extends StatelessWidget {
                     color: Colors.white,
                   )),
               const SizedBox(
-                height: 30,
+                height: 20,
               ),
               const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -127,7 +128,7 @@ class App extends StatelessWidget {
                 ],
               ),
               const SizedBox(
-                height: 100,
+                height: 50,
               ),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.end,
@@ -152,56 +153,96 @@ class App extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              Container(
-                decoration: BoxDecoration(
-                  color: const Color(0xFF1F2123),
-                  borderRadius: BorderRadius.circular(30),
+              // Container(
+              //   clipBehavior: Clip.hardEdge, // 이미지 오버플로우 허용 및 오버플로우 이미지 제거
+              //   decoration: BoxDecoration(
+              //     color: const Color(0xFF1F2123),
+              //     borderRadius: BorderRadius.circular(30),
+              //   ),
+              //   child: Padding(
+              //     padding: const EdgeInsets.symmetric(
+              //       vertical: 20,
+              //       horizontal: 10,
+              //     ),
+              //     child: Row(
+              //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //       children: [
+              //         Column(
+              //           crossAxisAlignment: CrossAxisAlignment.start,
+              //           children: [
+              //             const Text(
+              //               'Euro',
+              //               style: TextStyle(
+              //                   color: Colors.white,
+              //                   fontSize: 32,
+              //                   fontWeight: FontWeight.w600),
+              //             ),
+              //             const SizedBox(
+              //               height: 10,
+              //             ),
+              //             Row(
+              //               children: [
+              //                 const Text(
+              //                   '6428',
+              //                   style: TextStyle(
+              //                     color: Colors.white,
+              //                     fontSize: 20,
+              //                   ),
+              //                 ),
+              //                 const SizedBox(
+              //                   width: 5,
+              //                 ),
+              //                 Text(
+              //                   'EUR',
+              //                   style: TextStyle(
+              //                     color: Colors.white.withOpacity(0.8),
+              //                     fontSize: 20,
+              //                   ),
+              //                 ),
+              //               ],
+              //             ),
+              //           ],
+              //         ),
+              //         Transform.scale(
+              //           scale: 2.2,
+              //           child: Transform.translate(
+              //             offset: const Offset(-10, 10),
+              //             child: const Icon(
+              //               Icons.euro_rounded,
+              //               color: Colors.white,
+              //               size: 70,
+              //             ),
+              //           ),
+              //         ),
+              //       ],
+              //     ),
+              //   ),
+              // ),
+              const Currenycard(
+                name: 'Euro',
+                code: "EUR",
+                amount: '6 428',
+                icon: Icons.euro_rounded,
+                isInverted: false,
+              ),
+              Transform.translate(
+                offset: const Offset(0, -20),
+                child: const Currenycard(
+                  name: 'Bitcoin',
+                  code: "BTC",
+                  amount: '6 428',
+                  icon: Icons.currency_bitcoin,
+                  isInverted: true,
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 20,
-                    horizontal: 10,
-                  ),
-                  child: Row(
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text(
-                            'Euro',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 32,
-                                fontWeight: FontWeight.w600),
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          Row(
-                            children: [
-                              const Text(
-                                '6428',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 20,
-                                ),
-                              ),
-                              const SizedBox(
-                                width: 5,
-                              ),
-                              Text(
-                                'EUR',
-                                style: TextStyle(
-                                  color: Colors.white.withOpacity(0.8),
-                                  fontSize: 20,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
+              ),
+              Transform.translate(
+                offset: const Offset(0, -20),
+                child: const Currenycard(
+                  name: 'Dollar',
+                  code: "USD",
+                  amount: '428',
+                  icon: Icons.attach_money_outlined,
+                  isInverted: false,
                 ),
               )
             ],
